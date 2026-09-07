@@ -140,7 +140,7 @@ npx drizzle-kit push
 │       ├── index.ts            # Database connection
 │       └── schema.ts           # Drizzle schema
 ├── public/images/              # Generated images
-├── drizzle.config.json         # Drizzle configuration
+├── drizzle.config.ts           # Drizzle configuration
 └── vercel.json                 # Vercel configuration
 ```
 

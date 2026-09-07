@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { quoteRequests } from "@/db/schema";
-import { desc } from "drizzle-orm";
 
 export async function POST(request: Request) {
   try {
@@ -37,19 +36,5 @@ export async function POST(request: Request) {
       { error: "Something went wrong. Please try again." },
       { status: 500 },
     );
-  }
-}
-
-export async function GET() {
-  try {
-    const rows = await db
-      .select()
-      .from(quoteRequests)
-      .orderBy(desc(quoteRequests.createdAt))
-      .limit(50);
-    return NextResponse.json({ requests: rows });
-  } catch (err) {
-    console.error("quote fetch failed", err);
-    return NextResponse.json({ error: "Failed to load requests." }, { status: 500 });
   }
 }
